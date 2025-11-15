@@ -2,8 +2,7 @@
 
 > Terraria의 핵심 메커니즘을 C++/WinAPI로 재구현한 2D 타일 기반 샌드박스 게임
 
-![게임 스크린샷](스크린샷 이미지 경로)
-<!-- 스크린샷 추가 예정 -->
+![게임 스크린샷](Terraria_Clone_Project_ScreenShot.jpg)
 
 ## 📌 프로젝트 개요
 
