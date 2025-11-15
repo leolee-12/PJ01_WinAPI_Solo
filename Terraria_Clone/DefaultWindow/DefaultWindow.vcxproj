@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{965de643-e9de-4b5d-b87c-f7646df8ef62}</ProjectGuid>
+    <RootNamespace>DefaultWindow</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <DisableSpecificWarnings>28159</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <DisableSpecificWarnings>28159</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <DisableSpecificWarnings>28159</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>C:\Users\LEO\Documents\Workspace\00_Jusin_Study\jusin_teachernote\fMod해더&amp;라이브러리\core\inc;C:\Users\LEO\Documents\Workspace\00_Jusin_Study\jusin_teachernote\fMod해더&amp;라이브러리\studio\inc</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\LEO\Documents\Workspace\00_Jusin_Study\jusin_teachernote\fMod해더&amp;라이브러리\core\lib;C:\Users\LEO\Documents\Workspace\00_Jusin_Study\jusin_teachernote\fMod해더&amp;라이브러리\studio\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <DisableSpecificWarnings>28159</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="CAbstractFactory.h" />
+    <ClInclude Include="CBmpMgr.h" />
+    <ClInclude Include="CBossHPBar.h" />
+    <ClInclude Include="CBullet.h" />
+    <ClInclude Include="CBullet_B.h" />
+    <ClInclude Include="CButton.h" />
+    <ClInclude Include="CCharacter.h" />
+    <ClInclude Include="CCollisionMgr.h" />
+    <ClInclude Include="CCraft.h" />
+    <ClInclude Include="CDynamite.h" />
+    <ClInclude Include="CEdit.h" />
+    <ClInclude Include="CEffect.h" />
+    <ClInclude Include="CEffectMgr.h" />
+    <ClInclude Include="CFurniture.h" />
+    <ClInclude Include="CHPBar.h" />
+    <ClInclude Include="CInventory.h" />
+    <ClInclude Include="CInven_Bag.h" />
+    <ClInclude Include="CInven_Shop.h" />
+    <ClInclude Include="CItem.h" />
+    <ClInclude Include="CItemMgr.h" />
+    <ClInclude Include="CItem_Armor.h" />
+    <ClInclude Include="CItem_Block.h" />
+    <ClInclude Include="CItem_Consumable.h" />
+    <ClInclude Include="CItem_Furniture.h" />
+    <ClInclude Include="CItem_Nonconsumable.h" />
+    <ClInclude Include="CItem_Weapon.h" />
+    <ClInclude Include="CKeyMgr.h" />
+    <ClInclude Include="CLogo.h" />
+    <ClInclude Include="CMainGame.h" />
+    <ClInclude Include="CMenu.h" />
+    <ClInclude Include="CMinion.h" />
+    <ClInclude Include="CMonster.h" />
+    <ClInclude Include="CMonster_Boss.h" />
+    <ClInclude Include="CMonster_N1.h" />
+    <ClInclude Include="CMouse.h" />
+    <ClInclude Include="CMyBmp.h" />
+    <ClInclude Include="CNPC.h" />
+    <ClInclude Include="CNPCButton.h" />
+    <ClInclude Include="CNPC_Guide.h" />
+    <ClInclude Include="CNPC_HintBox.h" />
+    <ClInclude Include="CNPC_Merchant.h" />
+    <ClInclude Include="CNPC_Nurse.h" />
+    <ClInclude Include="CObj.h" />
+    <ClInclude Include="CObjMgr.h" />
+    <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="CPlayerDeadText.h" />
+    <ClInclude Include="CMessageBox.h" />
+    <ClInclude Include="CQuestBox.h" />
+    <ClInclude Include="CScene.h" />
+    <ClInclude Include="CSceneMgr.h" />
+    <ClInclude Include="CScrollMgr.h" />
+    <ClInclude Include="CSoundMgr.h" />
+    <ClInclude Include="CStage.h" />
+    <ClInclude Include="CText.h" />
+    <ClInclude Include="CTextMgr.h" />
+    <ClInclude Include="CTile.h" />
+    <ClInclude Include="CTileBlock.h" />
+    <ClInclude Include="CTileMgr.h" />
+    <ClInclude Include="CTileSlot.h" />
+    <ClInclude Include="CUIMgr.h" />
+    <ClInclude Include="CUI.h" />
+    <ClInclude Include="DefaultWindow.h" />
+    <ClInclude Include="Define.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CBmpMgr.cpp" />
+    <ClCompile Include="CBossHPBar.cpp" />
+    <ClCompile Include="CBullet.cpp" />
+    <ClCompile Include="CBullet_B.cpp" />
+    <ClCompile Include="CButton.cpp" />
+    <ClCompile Include="CCharacter.cpp" />
+    <ClCompile Include="CCollisionMgr.cpp" />
+    <ClCompile Include="CCraft.cpp" />
+    <ClCompile Include="CDynamite.cpp" />
+    <ClCompile Include="CEdit.cpp" />
+    <ClCompile Include="CEffect.cpp" />
+    <ClCompile Include="CEffectMgr.cpp" />
+    <ClCompile Include="CFurniture.cpp" />
+    <ClCompile Include="CHPBar.cpp" />
+    <ClCompile Include="CInventory.cpp" />
+    <ClCompile Include="CInven_Bag.cpp" />
+    <ClCompile Include="CInven_Shop.cpp" />
+    <ClCompile Include="CItem.cpp" />
+    <ClCompile Include="CItemMgr.cpp" />
+    <ClCompile Include="CItem_Armor.cpp" />
+    <ClCompile Include="CItem_Block.cpp" />
+    <ClCompile Include="CItem_Consumable.cpp" />
+    <ClCompile Include="CItem_Furniture.cpp" />
+    <ClCompile Include="CItem_Nonconsumable.cpp" />
+    <ClCompile Include="CItem_Weapon.cpp" />
+    <ClCompile Include="CKeyMgr.cpp" />
+    <ClCompile Include="CLogo.cpp" />
+    <ClCompile Include="CMainGame.cpp" />
+    <ClCompile Include="CMenu.cpp" />
+    <ClCompile Include="CMinion.cpp" />
+    <ClCompile Include="CMonster.cpp" />
+    <ClCompile Include="CMonster_Boss.cpp" />
+    <ClCompile Include="CMonster_N1.cpp" />
+    <ClCompile Include="CMouse.cpp" />
+    <ClCompile Include="CMyBmp.cpp" />
+    <ClCompile Include="CNPC.cpp" />
+    <ClCompile Include="CNPCButton.cpp" />
+    <ClCompile Include="CNPC_Guide.cpp" />
+    <ClCompile Include="CNPC_HintBox.cpp" />
+    <ClCompile Include="CNPC_Merchant.cpp" />
+    <ClCompile Include="CNPC_Nurse.cpp" />
+    <ClCompile Include="CObj.cpp" />
+    <ClCompile Include="CObjMgr.cpp" />
+    <ClCompile Include="CPlayer.cpp" />
+    <ClCompile Include="CPlayerDeadText.cpp" />
+    <ClCompile Include="CMessageBox.cpp" />
+    <ClCompile Include="CQuestBox.cpp" />
+    <ClCompile Include="CScene.cpp" />
+    <ClCompile Include="CSceneMgr.cpp" />
+    <ClCompile Include="CScrollMgr.cpp" />
+    <ClCompile Include="CSoundMgr.cpp" />
+    <ClCompile Include="CStage.cpp" />
+    <ClCompile Include="CText.cpp" />
+    <ClCompile Include="CTextMgr.cpp" />
+    <ClCompile Include="CTile.cpp" />
+    <ClCompile Include="CTileBlock.cpp" />
+    <ClCompile Include="CTileMgr.cpp" />
+    <ClCompile Include="CTileSlot.cpp" />
+    <ClCompile Include="CUIMgr.cpp" />
+    <ClCompile Include="CUI.cpp" />
+    <ClCompile Include="DefaultWindow.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DefaultWindow.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="DefaultWindow.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,31 @@
+﻿  CItem.cpp
+C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CItem.cpp(20,39): warning C4244: '=': 'DWORD'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CItem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CItem.cpp(34,39): warning C4244: '=': 'DWORD'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CItem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CItem.cpp(120,13): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CItem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CItem.cpp(121,13): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CItem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CItem.cpp(205,25): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CItem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CItem.cpp(205,16): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CItem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CItem.cpp(252,24): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CItem.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CItem.cpp(252,15): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CItem.cpp'을(를) 컴파일하는 중)
+  
+  코드를 생성하고 있습니다.
+  32 of 2245 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  DefaultWindow.vcxproj -> C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\Release\DefaultWindow.exe
