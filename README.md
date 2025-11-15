@@ -1,4 +1,4 @@
-# WinAPI2D_Terraria_Clone_Project(WinAPI2D 테라리아 모작)
+# WinAPI2D_Terraria_Clone_Project(테라리아 모작)
 
 > Terraria의 핵심 메커니즘을 C++/WinAPI로 재구현한 2D 타일 기반 샌드박스 게임
 
