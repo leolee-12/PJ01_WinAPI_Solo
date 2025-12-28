@@ -245,13 +245,13 @@ void CPlayer::MoveKey_Input()
 
 				if (pTile1 == nullptr || pTile2 == nullptr) return;
 
-				if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 6) &&
-					(pTile2->Get_Option(CTile::TILE_BLOCK) == 6))
+				if ((pTile1->Get_Option(CTile::TILE_BLOCK) == int(BLOCK::HONEY)) &&
+					(pTile2->Get_Option(CTile::TILE_BLOCK) == int(BLOCK::HONEY)))
 				{
 					m_fXSpeed *= 0.5f;
 				}
-				else if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 7) &&
-						(pTile2->Get_Option(CTile::TILE_BLOCK) == 7))
+				else if ((pTile1->Get_Option(CTile::TILE_BLOCK) == int(BLOCK::ICE)) &&
+						(pTile2->Get_Option(CTile::TILE_BLOCK) == int(BLOCK::ICE)))
 				{
 					m_fXSpeed *= 0.995f;
 				}
@@ -566,11 +566,12 @@ void CPlayer::Move()
 {
 	const int iMaxIter = 100;
 	int iIter = 0;
+	CTileMgr* pTileMgr = CTileMgr::Get_Instance();
 
 	while (iIter++ < iMaxIter)
 	{
-		CTile* pTile1 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX);
-		CTile* pTile2 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX);
+		CTile* pTile1 = pTileMgr->Get_Tile(m_vecTile[4] + TILEX);
+		CTile* pTile2 = pTileMgr->Get_Tile(m_vecTile[5] + TILEX);
 
 		if (pTile1 == nullptr || pTile2 == nullptr) continue;
 
@@ -604,8 +605,8 @@ void CPlayer::Move()
 
 				if (m_fFallingDistance > 400)
 				{
-					pTile1 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX);
-					pTile2 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX);
+					pTile1 = pTileMgr->Get_Tile(m_vecTile[4] + TILEX);
+					pTile2 = pTileMgr->Get_Tile(m_vecTile[5] + TILEX);
 
 					if (pTile1 == nullptr || pTile2 == nullptr) continue;
 

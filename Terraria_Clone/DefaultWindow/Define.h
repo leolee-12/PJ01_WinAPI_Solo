@@ -88,6 +88,21 @@ enum UIID
 	UI_END
 };
 
+typedef enum class TILEBLOCKTYPE : int
+{
+	NONE = 0,
+	DIRT = 1,
+	STONE = 2,
+	GOLD = 3,
+	NWOOD = 4,
+	PWOOD = 5,
+	HONEY = 6,
+	ICE = 7,
+	CLOUD = 8,
+	WEB = 9,
+	PLATFORM = 10
+}BLOCK;
+
 enum EFFECTID
 {
 	EF_PLAYERDEAD,

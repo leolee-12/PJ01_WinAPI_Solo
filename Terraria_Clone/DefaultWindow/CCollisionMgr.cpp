@@ -239,6 +239,8 @@ int CCollisionMgr::Picked_InvenSlot()
 
 int CCollisionMgr::PredictCollision_Tile(CObj* pObj, float _fXSpeed, float _fYSpeed)
 {
+	CTileMgr* pTileMgr = CTileMgr::Get_Instance();
+
 	// XÃà
 	float	fPredictX = 0.f;
 	float	fPredictY = 0.f;
@@ -253,7 +255,7 @@ int CCollisionMgr::PredictCollision_Tile(CObj* pObj, float _fXSpeed, float _fYSp
 
 		for (size_t& i : pObj->Get_vecTile())
 		{
-			CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(i);
+			CTile* pTile = pTileMgr->Get_Tile(i);
 
 			if(pTile == nullptr) continue;
 
@@ -275,7 +277,7 @@ int CCollisionMgr::PredictCollision_Tile(CObj* pObj, float _fXSpeed, float _fYSp
 
 		for (auto& i : pObj->Get_vecTile())
 		{
-			CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(i);
+			CTile* pTile = pTileMgr->Get_Tile(i);
 
 			if (pTile == nullptr) continue;
 
@@ -292,6 +294,8 @@ int CCollisionMgr::PredictCollision_Tile(CObj* pObj, float _fXSpeed, float _fYSp
 
 int CCollisionMgr::PredictCollision_Tile(CItem* pItem, float _fXSpeed, float _fYSpeed)
 {
+	CTileMgr* pTileMgr = CTileMgr::Get_Instance();
+
 	// XÃà
 	float	fPredictX = 0.f;
 	float	fPredictY = 0.f;
@@ -304,7 +308,11 @@ int CCollisionMgr::PredictCollision_Tile(CItem* pItem, float _fXSpeed, float _fY
 		iTemp = pItem->Get_iTile();
 		pItem->Search_ObjTile(fPredictX, fPredictY + pItem->Get_Info()->fCY * 0.5f);
 
-		if (CTileMgr::Get_Instance()->Get_Tile(pItem->Get_iTile())->Get_Option(CTile::TILE_BLOCK) != 0)
+		CTile* pTile = pTileMgr->Get_Tile(pItem->Get_iTile());
+
+		if(pTile == nullptr) return PCT_NONE;
+
+		if (pTile->Get_Option(CTile::TILE_BLOCK) != 0)
 		{
 			pItem->Set_iTile(iTemp);
 			return PCT_X;
@@ -319,13 +327,16 @@ int CCollisionMgr::PredictCollision_Tile(CItem* pItem, float _fXSpeed, float _fY
 		iTemp = pItem->Get_iTile();
 		pItem->Search_ObjTile(fPredictX, fPredictY + pItem->Get_Info()->fCY * 0.5f);
 
-		if (CTileMgr::Get_Instance()->Get_Tile(pItem->Get_iTile())->Get_Option(CTile::TILE_BLOCK) != 0)
+		CTile* pTile = pTileMgr->Get_Tile(pItem->Get_iTile());
+
+		if (pTile == nullptr) return PCT_NONE;
+
+		if (pTile->Get_Option(CTile::TILE_BLOCK) != 0)
 		{
 			pItem->Set_iTile(iTemp);
 			return PCT_Y;
 		}
 	}
-	
 
 	return PCT_NONE;
 }
