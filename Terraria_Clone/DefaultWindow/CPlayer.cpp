@@ -240,13 +240,18 @@ void CPlayer::MoveKey_Input()
 
 			if (abs(m_fXSpeed) > 0.001f)
 			{
-				if ((CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 6) &&
-					(CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 6))
+				CTile* pTile1 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX);
+				CTile* pTile2 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX);
+
+				if (pTile1 == nullptr || pTile2 == nullptr) return;
+
+				if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 6) &&
+					(pTile2->Get_Option(CTile::TILE_BLOCK) == 6))
 				{
 					m_fXSpeed *= 0.5f;
 				}
-				else if ((CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 7) &&
-					(CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 7))
+				else if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 7) &&
+						(pTile2->Get_Option(CTile::TILE_BLOCK) == 7))
 				{
 					m_fXSpeed *= 0.995f;
 				}
@@ -512,8 +517,13 @@ void CPlayer::Status_Check()
 
 	Search_ObjTile(m_tInfo.fX, (float)m_tRect.bottom);
 
-	if ((CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0) &&
-		(CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0))
+	CTile* pTile1 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX);
+	CTile* pTile2 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX);
+
+	if (pTile1 == nullptr || pTile2 == nullptr) return;
+
+	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) &&
+		(pTile2->Get_Option(CTile::TILE_BLOCK) == 0))
 	{
 		m_bAir = true;
 		m_eJumpState = DOWNWARD;
@@ -554,13 +564,21 @@ void CPlayer::Gravity()
 
 void CPlayer::Move()
 {
-	while (true)
+	const int iMaxIter = 100;
+	int iIter = 0;
+
+	while (iIter++ < iMaxIter)
 	{
-			if ((CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 6) &&
-				(CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 6))
-			{
-				m_fXSpeed += -0.5f * m_fXSpeed;
-			}
+		CTile* pTile1 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX);
+		CTile* pTile2 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX);
+
+		if (pTile1 == nullptr || pTile2 == nullptr) continue;
+
+		if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 6) &&
+			(pTile2->Get_Option(CTile::TILE_BLOCK) == 6))
+		{
+			m_fXSpeed += -0.5f * m_fXSpeed;
+		}
 
 		int iResult = CCollisionMgr::PredictCollision_Tile(this, m_fXSpeed, m_fYSpeed);
 
@@ -586,9 +604,13 @@ void CPlayer::Move()
 
 				if (m_fFallingDistance > 400)
 				{
+					pTile1 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX);
+					pTile2 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX);
 
-					if ((CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX)->Get_Option(CTile::TILE_BLOCK) != 8) &&
-						(CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX)->Get_Option(CTile::TILE_BLOCK) != 8))
+					if (pTile1 == nullptr || pTile2 == nullptr) continue;
+
+					if ((pTile1->Get_Option(CTile::TILE_BLOCK) != 8) &&
+						(pTile2->Get_Option(CTile::TILE_BLOCK) != 8))
 						m_iCurHP -= int(10.f * (abs(m_fFallingDistance) - 400.f) / 16.f);
 
 					if (m_iCurHP <= 0)
@@ -600,6 +622,7 @@ void CPlayer::Move()
 								p->Add_PosY(-28.f);
 							}
 						}
+
 						CUIMgr::Get_Instance()->Add_UI(UIS_TEXT, CAbstractFactory<CText>::Create_UI());
 						CUIMgr::Get_Instance()->Get_TextList()->back()->Set_Data(CText::PLAYERDEAD_G);
 						CSoundMgr::Get_Instance()->PlaySoundQuick(L"Sound_PlayerKilled.wav", SOUND_EFFECT1, g_fVolume, 1, 100);
@@ -616,6 +639,10 @@ void CPlayer::Move()
 			else m_fYSpeed *= 0.5f;
 		}
 	}
+
+#ifdef _DEBUG
+	if (iIter >= iMaxIter) cout << "Player Move Loop OverFlow!" << endl;
+#endif
 
 	m_tInfo.fX += m_fXSpeed;
 	m_tInfo.fY += m_fYSpeed;

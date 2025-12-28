@@ -121,8 +121,13 @@ void CMonster::Status_Check()
 
 	Search_ObjTile(m_tInfo.fX, m_tRect.bottom);
 
-	if ((CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0) &&
-		(CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0))
+	CTile* pTile1 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX);
+	CTile* pTile2 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX);
+
+	if (pTile1 == nullptr || pTile2 == nullptr) return;
+
+	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) &&
+		(pTile2->Get_Option(CTile::TILE_BLOCK) == 0))
 	{
 		m_bAir = true;
 	}
@@ -228,7 +233,10 @@ void CMonster::Search_TargetDir()
 
 void CMonster::Move()
 {
-	while (true)
+	const int iMaxIter = 100;
+	int iIter = 0;
+
+	while (iIter++ < iMaxIter)
 	{
 		int iResult = CCollisionMgr::PredictCollision_Tile(this, m_fXSpeed, m_fYSpeed);
 
@@ -257,6 +265,10 @@ void CMonster::Move()
 			else m_fYSpeed *= 0.5f;
 		}
 	}
+
+#ifdef _DEBUG
+	if (iIter >= iMaxIter) cout << "Monster Move Loop OverFlow!" << endl;
+#endif
 
 	m_tInfo.fX += m_fXSpeed;
 	m_tInfo.fY += m_fYSpeed;

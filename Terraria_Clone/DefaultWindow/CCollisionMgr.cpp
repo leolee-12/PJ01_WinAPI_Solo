@@ -251,9 +251,13 @@ int CCollisionMgr::PredictCollision_Tile(CObj* pObj, float _fXSpeed, float _fYSp
 		vecTemp = pObj->Get_vecTile();
 		pObj->Search_ObjTile(fPredictX, fPredictY + pObj->Get_Info()->fCY * 0.5f);
 
-		for (auto& i : pObj->Get_vecTile())
+		for (size_t& i : pObj->Get_vecTile())
 		{
-			if (CTileMgr::Get_Instance()->Get_Tile(i)->Get_Option(CTile::TILE_BLOCK) != 0)
+			CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(i);
+
+			if(pTile == nullptr) continue;
+
+			if (pTile->Get_Option(CTile::TILE_BLOCK) != 0)
 			{
 				pObj->Set_vecTile(vecTemp);
 				return PCT_X;
@@ -271,7 +275,11 @@ int CCollisionMgr::PredictCollision_Tile(CObj* pObj, float _fXSpeed, float _fYSp
 
 		for (auto& i : pObj->Get_vecTile())
 		{
-			if (CTileMgr::Get_Instance()->Get_Tile(i)->Get_Option(CTile::TILE_BLOCK) != 0)
+			CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(i);
+
+			if (pTile == nullptr) continue;
+
+			if (pTile->Get_Option(CTile::TILE_BLOCK) != 0)
 			{
 				pObj->Set_vecTile(vecTemp);
 				return PCT_Y;

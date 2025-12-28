@@ -118,8 +118,13 @@ void CNPC_Guide::Status_Check()
 
 	Search_ObjTile(m_tInfo.fX, m_tRect.bottom);
 
-	if ((CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0) &&
-		(CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0))
+	CTile* pTile1 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[4] + TILEX);
+	CTile* pTile2 = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[5] + TILEX);
+
+	if (pTile1 == nullptr || pTile2 == nullptr) return;
+
+	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) &&
+		(pTile2->Get_Option(CTile::TILE_BLOCK) == 0))
 	{
 		m_bAir = true;
 	}

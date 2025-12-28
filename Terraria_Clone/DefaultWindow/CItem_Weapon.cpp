@@ -252,16 +252,18 @@ void CItem_Weapon::Use_HoldWeapon(CObj* pPlayer)
 
 void CItem_Weapon::Use_Pickaxe(int iIndex, POINT pt)
 {
-	CTile* tempTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
+	CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
 
-	if (tempTile->Get_Option(CTile::TILE_BLOCK) > 0)
+	if (pTile == nullptr) return;
+
+	if (pTile->Get_Option(CTile::TILE_BLOCK) > 0)
 	{
-		if(tempTile->Get_Option(CTile::TILE_BLOCK) == 2 || tempTile->Get_Option(CTile::TILE_BLOCK) == 3)
+		if(pTile->Get_Option(CTile::TILE_BLOCK) == 2 || pTile->Get_Option(CTile::TILE_BLOCK) == 3)
 			CSoundMgr::Get_Instance()->PlaySound(L"Sound_Tink_0.wav", SOUND_EFFECT3, g_fVolume);
 		else
 			CSoundMgr::Get_Instance()->PlaySound(L"Sound_Dig_2.wav", SOUND_EFFECT3, g_fVolume);
 
-		static_cast<CTileBlock*>(tempTile)->Inflict_Damage(20.f, m_iItemCode);
+		static_cast<CTileBlock*>(pTile)->Inflict_Damage(20.f, m_iItemCode);
 	}
 	else
 	{
@@ -292,12 +294,14 @@ void CItem_Weapon::Use_Axe(int iIndex, POINT pt)
 
 void CItem_Weapon::Use_Hammer(int iIndex, POINT pt)
 {
-	CTile* tempTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
+	CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
 
-	if (tempTile->Get_Option(CTile::TILE_WALL) > 0)
+	if (pTile == nullptr) return;
+
+	if (pTile->Get_Option(CTile::TILE_WALL) > 0)
 	{
 		CSoundMgr::Get_Instance()->PlaySound(L"Sound_Dig_0.wav", SOUND_EFFECT3, g_fVolume);
 
-		static_cast<CTileBlock*>(tempTile)->Inflict_Damage(20.f, m_iItemCode);
+		static_cast<CTileBlock*>(pTile)->Inflict_Damage(20.f, m_iItemCode);
 	}
 }

@@ -79,14 +79,14 @@ int APIENTRY wWinMain(	_In_ HINSTANCE hInstance,
 
 		else
 		{
-			//if (dwTime + 5 < GetTickCount())
-			//{
+			if (dwTime + 10 < GetTickCount())
+			{
 				MainGame.Update();
 				MainGame.Late_Update();
-				MainGame.Render() ;
+				MainGame.Render();
 
 				dwTime = GetTickCount();
-			//}
+			}
 		}
 	}
 

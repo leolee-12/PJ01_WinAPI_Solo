@@ -128,7 +128,11 @@ void CItem::Status_Check()
 
 	Search_ObjTile(m_tInfo.fX, (float)m_tRect.bottom);
 
-	if (CTileMgr::Get_Instance()->Get_Tile(m_iTile + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0)
+	CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(m_iTile + TILEX);
+
+	if(pTile == nullptr) return;
+
+	if (pTile->Get_Option(CTile::TILE_BLOCK) == 0)
 	{
 		m_bAir = true;
 	}

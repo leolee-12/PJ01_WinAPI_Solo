@@ -107,14 +107,21 @@ void CItem_Furniture::Use_Item(CObj* pPlayer)
 		{
 			for (int j = 0; j < m_iFTTileX; j++)
 			{
-				if (CTileMgr::Get_Instance()->Get_Tile(iIndex + j - i * TILEX)->Get_Option(CTile::TILE_BLOCK) != 0)
-					return;
+				CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(iIndex + j - i * TILEX);
+
+				if (pTile == nullptr) return;
+
+				if (pTile->Get_Option(CTile::TILE_BLOCK) != 0) return;
 			}
 		}
 
-		if ((CTileMgr::Get_Instance()->Get_Tile(iIndex + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0) ||
-			(CTileMgr::Get_Instance()->Get_Tile(iIndex + 1 + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0))
-			return;
+		CTile* pTile1 = CTileMgr::Get_Instance()->Get_Tile(iIndex + TILEX);
+		CTile* pTile2 = CTileMgr::Get_Instance()->Get_Tile(iIndex + 1 + TILEX);
+
+		if (pTile1 == nullptr || pTile2 == nullptr) return;
+
+		if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) ||
+			(pTile2->Get_Option(CTile::TILE_BLOCK) == 0)) return;
 
 		Place_Furniture(iIndex);
 

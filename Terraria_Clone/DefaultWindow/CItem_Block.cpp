@@ -101,14 +101,16 @@ void CItem_Block::Use_Item(CObj* pPlayer)
 
 void CItem_Block::Use_Block(int iIndex)
 {
-	CTile* tempTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
+	CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
 
-	if (tempTile->Get_Option(CTile::TILE_BLOCK) == 0)
+	if (pTile == nullptr) return;
+
+	if (pTile->Get_Option(CTile::TILE_BLOCK) == 0)
 	{
 		CSoundMgr::Get_Instance()->PlaySoundQuick(L"Sound_ITBL.wav", SOUND_EFFECT5, g_fVolume, 1, m_fBlockCoolTime);
 
-		tempTile->Set_Option(CTile::TILE_BLOCK, m_tTileInfo.iBlock);
-		static_cast<CTileBlock*>(tempTile)->Set_BlockHP(100);
+		pTile->Set_Option(CTile::TILE_BLOCK, m_tTileInfo.iBlock);
+		static_cast<CTileBlock*>(pTile)->Set_BlockHP(100);
 		CTileMgr::Get_Instance()->Set_Active(iIndex);
 		CTileMgr::Get_Instance()->Check_SideTile(0, iIndex);
 
@@ -118,14 +120,16 @@ void CItem_Block::Use_Block(int iIndex)
 
 void CItem_Block::Use_Wall(int iIndex)
 {
-	CTile* tempTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
+	CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
 
-	if (tempTile->Get_Option(CTile::TILE_WALL) == 0)
+	if (pTile == nullptr) return;
+
+	if (pTile->Get_Option(CTile::TILE_WALL) == 0)
 	{
 		CSoundMgr::Get_Instance()->PlaySound(L"Sound_Dig.wav", SOUND_EFFECT3, g_fVolume);
 
-		tempTile->Set_Option(CTile::TILE_WALL, m_tTileInfo.iWall);
-		static_cast<CTileBlock*>(tempTile)->Set_WallHP(100);
+		pTile->Set_Option(CTile::TILE_WALL, m_tTileInfo.iWall);
+		static_cast<CTileBlock*>(pTile)->Set_WallHP(100);
 		CTileMgr::Get_Instance()->Set_Active(iIndex);
 		CTileMgr::Get_Instance()->Check_SideTile(1, iIndex);
 
@@ -135,13 +139,15 @@ void CItem_Block::Use_Wall(int iIndex)
 
 void CItem_Block::Use_Rope(int iIndex)
 {
-	CTile* tempTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
+	CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(iIndex);
 
-	if (tempTile->Get_Option(CTile::TILE_ROPE) == 0)
+	if (pTile == nullptr) return;
+
+	if (pTile->Get_Option(CTile::TILE_ROPE) == 0)
 	{
 		CSoundMgr::Get_Instance()->PlaySound(L"Sound_Dig.wav", SOUND_EFFECT3, g_fVolume);
 
-		tempTile->Set_Option(CTile::TILE_ROPE, m_tTileInfo.iRope);
+		pTile->Set_Option(CTile::TILE_ROPE, m_tTileInfo.iRope);
 		CTileMgr::Get_Instance()->Set_Active(iIndex);
 		CTileMgr::Get_Instance()->Check_SideTile(2, iIndex);
 

@@ -156,7 +156,11 @@ void CMonster_Boss::Status_Check()
 
 	for(int i = 0; i < OBJ_TILEX; ++i)
 	{
-		if (CTileMgr::Get_Instance()->Get_Tile(m_vecTile[len - 1 - i] + TILEX)->Get_Option(CTile::TILE_BLOCK) == 0) iTemp++;
+		CTile* pTile = CTileMgr::Get_Instance()->Get_Tile(m_vecTile[len - 1 - i] + TILEX);
+
+		if(pTile == nullptr) continue;
+
+		if (pTile->Get_Option(CTile::TILE_BLOCK) == 0) iTemp++;
 
 		if (iTemp >= iAirLimit)
 		{

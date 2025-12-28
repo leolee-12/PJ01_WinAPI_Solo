@@ -1,11 +1,2 @@
-﻿  CPlayer.cpp
-C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CPlayer.h(33,42): warning C4244: '=': 'DWORD'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/CPlayer.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CPlayer.cpp(83,24): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/CPlayer.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\DefaultWindow\CPlayer.cpp(98,37): warning C4244: '=': 'DWORD'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/CPlayer.cpp'을(를) 컴파일하는 중)
-  
-  DefaultWindow.vcxproj -> C:\Users\이우영\Documents\workspace_lt\00_Jusin_Study\jusin_WinAPI_개인2D\개인2DWinAPI_LWY_251111\Debug\DefaultWindow.exe
+﻿  DefaultWindow.cpp
+  DefaultWindow.vcxproj -> C:\Users\LEO\Documents\GitHub\WinAPI2D_Terraria_Clone_Project\Terraria_Clone\Debug\DefaultWindow.exe

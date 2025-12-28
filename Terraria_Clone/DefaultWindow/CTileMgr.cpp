@@ -301,7 +301,7 @@ void CTileMgr::Check_SideTile(int iItemSubID, int iIndex)
 CTile* CTileMgr::Get_Tile(int iIndex)
 {
 	if (0 > iIndex || iIndex >= m_vecTile.size())
-		return m_vecTile[0];
+		return nullptr;
 
 	else
 		return m_vecTile[iIndex];
