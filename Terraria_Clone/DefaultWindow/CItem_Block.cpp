@@ -8,6 +8,7 @@
 #include "CTileBlock.h"
 #include "CTileMgr.h"
 #include "CUIMgr.h"
+using namespace TileConst;
 
 CItem_Block::CItem_Block()
 	:	m_fBlockCoolTime(300.f)
@@ -105,7 +106,7 @@ void CItem_Block::Use_Block(int iIndex)
 
 	if (pTile == nullptr) return;
 
-	if (pTile->Get_Option(CTile::TILE_BLOCK) == 0)
+	if (pTile->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE)
 	{
 		CSoundMgr::Get_Instance()->PlaySoundQuick(L"Sound_ITBL.wav", SOUND_EFFECT5, g_fVolume, 1, m_fBlockCoolTime);
 
@@ -124,7 +125,7 @@ void CItem_Block::Use_Wall(int iIndex)
 
 	if (pTile == nullptr) return;
 
-	if (pTile->Get_Option(CTile::TILE_WALL) == 0)
+	if (pTile->Get_Option(CTile::TILE_WALL) == WALL_NONE)
 	{
 		CSoundMgr::Get_Instance()->PlaySound(L"Sound_Dig.wav", SOUND_EFFECT3, g_fVolume);
 
@@ -143,7 +144,7 @@ void CItem_Block::Use_Rope(int iIndex)
 
 	if (pTile == nullptr) return;
 
-	if (pTile->Get_Option(CTile::TILE_ROPE) == 0)
+	if (pTile->Get_Option(CTile::TILE_ROPE) == ROPE_NONE)
 	{
 		CSoundMgr::Get_Instance()->PlaySound(L"Sound_Dig.wav", SOUND_EFFECT3, g_fVolume);
 

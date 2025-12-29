@@ -9,6 +9,7 @@
 #include "CItemMgr.h"
 #include "CItem_Nonconsumable.h"
 #include "CAbstractFactory.h"
+using namespace TileConst;
 
 CMonster::CMonster()
 	:	m_ePreMotion(MS_END),
@@ -126,8 +127,8 @@ void CMonster::Status_Check()
 
 	if (pTile1 == nullptr || pTile2 == nullptr) return;
 
-	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) &&
-		(pTile2->Get_Option(CTile::TILE_BLOCK) == 0))
+	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE) &&
+		(pTile2->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE))
 	{
 		m_bAir = true;
 	}

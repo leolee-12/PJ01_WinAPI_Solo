@@ -9,6 +9,7 @@
 #include "CTileMgr.h"
 #include "CSoundMgr.h"
 #include "CMinion.h"
+using namespace TileConst;
 
 CItem_Weapon::CItem_Weapon()
 {
@@ -256,9 +257,9 @@ void CItem_Weapon::Use_Pickaxe(int iIndex, POINT pt)
 
 	if (pTile == nullptr) return;
 
-	if (pTile->Get_Option(CTile::TILE_BLOCK) > 0)
+	if (pTile->Get_Option(CTile::TILE_BLOCK) > BLOCK_NONE)
 	{
-		if(pTile->Get_Option(CTile::TILE_BLOCK) == 2 || pTile->Get_Option(CTile::TILE_BLOCK) == 3)
+		if(pTile->Get_Option(CTile::TILE_BLOCK) == BLOCK_STONE || pTile->Get_Option(CTile::TILE_BLOCK) == BLOCK_GOLD)
 			CSoundMgr::Get_Instance()->PlaySound(L"Sound_Tink_0.wav", SOUND_EFFECT3, g_fVolume);
 		else
 			CSoundMgr::Get_Instance()->PlaySound(L"Sound_Dig_2.wav", SOUND_EFFECT3, g_fVolume);
@@ -298,7 +299,7 @@ void CItem_Weapon::Use_Hammer(int iIndex, POINT pt)
 
 	if (pTile == nullptr) return;
 
-	if (pTile->Get_Option(CTile::TILE_WALL) > 0)
+	if (pTile->Get_Option(CTile::TILE_WALL) > WALL_NONE)
 	{
 		CSoundMgr::Get_Instance()->PlaySound(L"Sound_Dig_0.wav", SOUND_EFFECT3, g_fVolume);
 

@@ -9,6 +9,7 @@
 #include "CQuestBox.h"
 #include "CUIMgr.h"
 #include "CSoundMgr.h"
+using namespace TileConst;
 
 CItem_Furniture::CItem_Furniture()
 	:	m_fFTCoolTime(300.f),
@@ -111,7 +112,7 @@ void CItem_Furniture::Use_Item(CObj* pPlayer)
 
 				if (pTile == nullptr) return;
 
-				if (pTile->Get_Option(CTile::TILE_BLOCK) != 0) return;
+				if (pTile->Get_Option(CTile::TILE_BLOCK) != BLOCK_NONE) return;
 			}
 		}
 
@@ -120,8 +121,8 @@ void CItem_Furniture::Use_Item(CObj* pPlayer)
 
 		if (pTile1 == nullptr || pTile2 == nullptr) return;
 
-		if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) ||
-			(pTile2->Get_Option(CTile::TILE_BLOCK) == 0)) return;
+		if ((pTile1->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE) ||
+			(pTile2->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE)) return;
 
 		Place_Furniture(iIndex);
 

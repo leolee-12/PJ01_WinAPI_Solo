@@ -6,6 +6,7 @@
 #include "CItemMgr.h"
 #include "CUIMgr.h"
 #include "CInven_Bag.h"
+using namespace TileConst;
 
 CItem::CItem()
 	:	m_bUse(false),
@@ -132,7 +133,7 @@ void CItem::Status_Check()
 
 	if(pTile == nullptr) return;
 
-	if (pTile->Get_Option(CTile::TILE_BLOCK) == 0)
+	if (pTile->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE)
 	{
 		m_bAir = true;
 	}

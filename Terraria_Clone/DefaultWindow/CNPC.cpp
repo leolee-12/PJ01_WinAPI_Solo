@@ -10,6 +10,7 @@
 #include "CInven_Bag.h"
 #include "CPlayer.h"
 #include "CSoundMgr.h"
+using namespace TileConst;
 
 CNPC::CNPC()
 	:	m_ePreMotion(NS_END),
@@ -124,8 +125,8 @@ void CNPC::Status_Check()
 
 	if(pTile1 == nullptr || pTile2 == nullptr) return;
 
-	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) &&
-		(pTile2->Get_Option(CTile::TILE_BLOCK) == 0))
+	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE) &&
+		(pTile2->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE))
 	{
 		m_bAir = true;
 	}

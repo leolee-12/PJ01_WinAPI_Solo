@@ -23,6 +23,7 @@
 #include "CMouse.h"
 #include "CMainGame.h"
 #include "CMonster_N1.h"
+using namespace TileConst;
 
 CPlayer::CPlayer()
 	:	m_ePreMotion(PS_END),
@@ -245,13 +246,13 @@ void CPlayer::MoveKey_Input()
 
 				if (pTile1 == nullptr || pTile2 == nullptr) return;
 
-				if ((pTile1->Get_Option(CTile::TILE_BLOCK) == int(BLOCK::HONEY)) &&
-					(pTile2->Get_Option(CTile::TILE_BLOCK) == int(BLOCK::HONEY)))
+				if ((pTile1->Get_Option(CTile::TILE_BLOCK) == BLOCK_HONEY) &&
+					(pTile2->Get_Option(CTile::TILE_BLOCK) == BLOCK_HONEY))
 				{
 					m_fXSpeed *= 0.5f;
 				}
-				else if ((pTile1->Get_Option(CTile::TILE_BLOCK) == int(BLOCK::ICE)) &&
-						(pTile2->Get_Option(CTile::TILE_BLOCK) == int(BLOCK::ICE)))
+				else if ((pTile1->Get_Option(CTile::TILE_BLOCK) == BLOCK_ICE) &&
+						(pTile2->Get_Option(CTile::TILE_BLOCK) == BLOCK_ICE))
 				{
 					m_fXSpeed *= 0.995f;
 				}
@@ -522,8 +523,8 @@ void CPlayer::Status_Check()
 
 	if (pTile1 == nullptr || pTile2 == nullptr) return;
 
-	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) &&
-		(pTile2->Get_Option(CTile::TILE_BLOCK) == 0))
+	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE) &&
+		(pTile2->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE))
 	{
 		m_bAir = true;
 		m_eJumpState = DOWNWARD;
@@ -575,8 +576,8 @@ void CPlayer::Move()
 
 		if (pTile1 == nullptr || pTile2 == nullptr) continue;
 
-		if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 6) &&
-			(pTile2->Get_Option(CTile::TILE_BLOCK) == 6))
+		if ((pTile1->Get_Option(CTile::TILE_BLOCK) == BLOCK_HONEY) &&
+			(pTile2->Get_Option(CTile::TILE_BLOCK) == BLOCK_HONEY))
 		{
 			m_fXSpeed += -0.5f * m_fXSpeed;
 		}
@@ -610,8 +611,8 @@ void CPlayer::Move()
 
 					if (pTile1 == nullptr || pTile2 == nullptr) continue;
 
-					if ((pTile1->Get_Option(CTile::TILE_BLOCK) != 8) &&
-						(pTile2->Get_Option(CTile::TILE_BLOCK) != 8))
+					if ((pTile1->Get_Option(CTile::TILE_BLOCK) != BLOCK_CLOUD) &&
+						(pTile2->Get_Option(CTile::TILE_BLOCK) != BLOCK_CLOUD))
 						m_iCurHP -= int(10.f * (abs(m_fFallingDistance) - 400.f) / 16.f);
 
 					if (m_iCurHP <= 0)

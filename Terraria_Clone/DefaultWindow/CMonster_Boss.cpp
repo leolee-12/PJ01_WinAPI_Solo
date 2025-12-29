@@ -13,9 +13,9 @@
 #include "CEffectMgr.h"
 #include "CItem_Weapon.h"
 #include "CItemMgr.h"
-
 #include "CNPC_Guide.h"
 #include "CSoundMgr.h"
+using namespace TileConst;
 
 CMonster_Boss::CMonster_Boss()
 	:	m_ePattern(BP_NONE1),
@@ -160,7 +160,7 @@ void CMonster_Boss::Status_Check()
 
 		if(pTile == nullptr) continue;
 
-		if (pTile->Get_Option(CTile::TILE_BLOCK) == 0) iTemp++;
+		if (pTile->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE) iTemp++;
 
 		if (iTemp >= iAirLimit)
 		{

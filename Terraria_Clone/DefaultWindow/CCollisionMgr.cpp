@@ -6,6 +6,7 @@
 #include "CScrollMgr.h"
 #include "CUIMgr.h"
 #include "CInven_Bag.h"
+using namespace TileConst;
 
 void CCollisionMgr::Collision_Rect(list<CObj*> Dst, list<CObj*> Src)
 {
@@ -259,7 +260,7 @@ int CCollisionMgr::PredictCollision_Tile(CObj* pObj, float _fXSpeed, float _fYSp
 
 			if(pTile == nullptr) continue;
 
-			if (pTile->Get_Option(CTile::TILE_BLOCK) != 0)
+			if (pTile->Get_Option(CTile::TILE_BLOCK) != BLOCK_NONE)
 			{
 				pObj->Set_vecTile(vecTemp);
 				return PCT_X;
@@ -281,7 +282,7 @@ int CCollisionMgr::PredictCollision_Tile(CObj* pObj, float _fXSpeed, float _fYSp
 
 			if (pTile == nullptr) continue;
 
-			if (pTile->Get_Option(CTile::TILE_BLOCK) != 0)
+			if (pTile->Get_Option(CTile::TILE_BLOCK) != BLOCK_NONE)
 			{
 				pObj->Set_vecTile(vecTemp);
 				return PCT_Y;
@@ -312,7 +313,7 @@ int CCollisionMgr::PredictCollision_Tile(CItem* pItem, float _fXSpeed, float _fY
 
 		if(pTile == nullptr) return PCT_NONE;
 
-		if (pTile->Get_Option(CTile::TILE_BLOCK) != 0)
+		if (pTile->Get_Option(CTile::TILE_BLOCK) != BLOCK_NONE)
 		{
 			pItem->Set_iTile(iTemp);
 			return PCT_X;
@@ -331,7 +332,7 @@ int CCollisionMgr::PredictCollision_Tile(CItem* pItem, float _fXSpeed, float _fY
 
 		if (pTile == nullptr) return PCT_NONE;
 
-		if (pTile->Get_Option(CTile::TILE_BLOCK) != 0)
+		if (pTile->Get_Option(CTile::TILE_BLOCK) != BLOCK_NONE)
 		{
 			pItem->Set_iTile(iTemp);
 			return PCT_Y;

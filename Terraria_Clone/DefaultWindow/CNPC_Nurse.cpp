@@ -8,6 +8,7 @@
 #include "CCollisionMgr.h"
 #include "CEffectMgr.h"
 #include "CUIMgr.h"
+using namespace TileConst;
 
 CNPC_Nurse::CNPC_Nurse()
 {
@@ -121,8 +122,8 @@ void CNPC_Nurse::Status_Check()
 
 	if (pTile1 == nullptr || pTile2 == nullptr) return;
 
-	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == 0) &&
-		(pTile2->Get_Option(CTile::TILE_BLOCK) == 0))
+	if ((pTile1->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE) &&
+		(pTile2->Get_Option(CTile::TILE_BLOCK) == BLOCK_NONE))
 	{
 		m_bAir = true;
 	}

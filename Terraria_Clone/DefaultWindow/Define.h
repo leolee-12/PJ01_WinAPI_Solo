@@ -88,21 +88,6 @@ enum UIID
 	UI_END
 };
 
-typedef enum class TILEBLOCKTYPE : int
-{
-	NONE = 0,
-	DIRT = 1,
-	STONE = 2,
-	GOLD = 3,
-	NWOOD = 4,
-	PWOOD = 5,
-	HONEY = 6,
-	ICE = 7,
-	CLOUD = 8,
-	WEB = 9,
-	PLATFORM = 10
-}BLOCK;
-
 enum EFFECTID
 {
 	EF_PLAYERDEAD,
@@ -289,3 +274,29 @@ typedef struct tagEffectKey
 		return iEffectCode < other.iEffectCode;
 	}
 }EFFECTKEY;
+
+namespace TileConst {
+	// 블록 타입
+	constexpr int BLOCK_NONE = 0;
+	constexpr int BLOCK_DIRT = 1;
+	constexpr int BLOCK_STONE = 2;
+	constexpr int BLOCK_GOLD = 3;
+	constexpr int BLOCK_NWOOD = 4;  // Natural Wood
+	constexpr int BLOCK_PWOOD = 5;  // Platform Wood
+	constexpr int BLOCK_HONEY = 6;
+	constexpr int BLOCK_ICE = 7;
+	constexpr int BLOCK_CLOUD = 8;
+	constexpr int BLOCK_WEB = 9;
+	constexpr int BLOCK_PLATFORM = 10;
+
+	// 벽지 타입
+	constexpr int WALL_NONE = 0;
+	constexpr int WALL_WOOD = 1;
+	constexpr int WALL_STONE = 2;
+	constexpr int WALL_DIRT = 3;
+
+	// 로프 타입
+	constexpr int ROPE_NONE = 0;
+	constexpr int ROPE_NORMAL = 1;
+	constexpr int ROPE_SILK = 2;
+}
