@@ -219,3 +219,10 @@ FodyWeavers.xsd
 # IDE and editor files
 *.sublime-*
 *.code-workspace
+
+# Personal
+[Dd]ocs/
+CLAUDE.md
+AGENTS.md
+.claude/
+.agents/
